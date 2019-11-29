@@ -1,6 +1,6 @@
 module.exports = {
   	title: 'blog',
-  	base: '/vue-blog',
+  	base: '/vue-blog/',
   	head: [
     	['link', { rel: 'icon', href: '/logo.JPG' }]
   	],
