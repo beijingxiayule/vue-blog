@@ -17,6 +17,7 @@ module.exports = {
     	sidebar: [
 	      	['/blog/20191111.md', '玩转for循环'],
 	      	['/blog/20191112.md', 'Reflect与Proxy'],
+	      	['/blog/20191129.md', 'vue面试题']
 	    ]
 	},
 }
