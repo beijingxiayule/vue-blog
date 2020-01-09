@@ -3,7 +3,7 @@ home: true
 heroImage: /logo.JPG
 heroText: 北京下雨了
 tagline: always believe in Lebron James
-actionText: let's go
+actionText: let's start
 actionLink: /blog/20191111.md
 features:
 - title: 记笔记
