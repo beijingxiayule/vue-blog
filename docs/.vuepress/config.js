@@ -2,7 +2,7 @@ module.exports = {
   	title: 'blog',
   	base: '/vue-blog/',
   	head: [
-    	['link', { rel: 'icon', href: '/beauty.png' }]
+    	['link', { rel: 'icon', href: '/logo.png' }]
   	],
   	description: 'Just playing around',
   	themeConfig: {
