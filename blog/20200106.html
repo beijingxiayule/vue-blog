@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>层叠上下文与层叠顺序 | blog</title>
+    <meta name="description" content="Just playing around">
+    <link rel="icon" href="/vue-blog/logo.png">
+    
+    <link rel="preload" href="/vue-blog/assets/css/0.styles.ea32b67c.css" as="style"><link rel="preload" href="/vue-blog/assets/js/app.90d19ee5.js" as="script"><link rel="preload" href="/vue-blog/assets/js/7.7c2c6a95.js" as="script"><link rel="prefetch" href="/vue-blog/assets/js/10.226c6371.js"><link rel="prefetch" href="/vue-blog/assets/js/11.5e2e60fd.js"><link rel="prefetch" href="/vue-blog/assets/js/12.302cf6c4.js"><link rel="prefetch" href="/vue-blog/assets/js/13.15aff0ae.js"><link rel="prefetch" href="/vue-blog/assets/js/2.d3a3f049.js"><link rel="prefetch" href="/vue-blog/assets/js/3.327c83e2.js"><link rel="prefetch" href="/vue-blog/assets/js/4.d6079133.js"><link rel="prefetch" href="/vue-blog/assets/js/5.126d9e8a.js"><link rel="prefetch" href="/vue-blog/assets/js/6.06834e62.js"><link rel="prefetch" href="/vue-blog/assets/js/8.e56a1002.js"><link rel="prefetch" href="/vue-blog/assets/js/9.09e3f7d8.js">
+    <link rel="stylesheet" href="/vue-blog/assets/css/0.styles.ea32b67c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-blog/" class="home-link router-link-active"><!----> <span class="site-name">blog</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-blog/" class="nav-link">Home</a></div> <a href="https://github.com/beijingxiayule/ypwang.github.io.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    My GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-blog/" class="nav-link">Home</a></div> <a href="https://github.com/beijingxiayule/ypwang.github.io.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    My GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/vue-blog/blog/20191111.html" class="sidebar-link">玩转for循环</a></li><li><a href="/vue-blog/blog/20191112.html" class="sidebar-link">Reflect与Proxy</a></li><li><a href="/vue-blog/blog/20191129.html" class="sidebar-link">vu常见面试题</a></li><li><a href="/vue-blog/blog/20200106.html" aria-current="page" class="active sidebar-link">层叠上下文与层叠顺序</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vue-blog/blog/20200107.html" class="sidebar-link">setTimeout的第三个参数</a></li><li><a href="/vue-blog/blog/20200108.html" class="sidebar-link">认识 URLSearchParams</a></li></ul> </div> <div class="page"> <div class="content"><h3 id="层叠上下文与层叠顺序"><a href="#层叠上下文与层叠顺序" class="header-anchor">#</a> 层叠上下文与层叠顺序</h3> <h4 id="先看几个问题？"><a href="#先看几个问题？" class="header-anchor">#</a> 先看几个问题？</h4> <pre><code>1、宝马和奥迪哪个图片在上 ？
+	&lt;div style=&quot;position:relative; z-index:auto;&quot;&gt;
+		&lt;img src=&quot;bwm.jpg&quot; style=&quot;position:absolute; z-index:2;&quot;&gt;
+	&lt;/div&gt;
+	&lt;div style=&quot;position:relative; z-index:auto;&quot;&gt;
+		&lt;img src=&quot;audi.jpg&quot; style=&quot;position:relative; z-index:1;&quot;&gt;
+	&lt;/div&gt;
+
+2、父级元素的z-index改为0，宝马和奥迪哪个图片在上 ？
+	&lt;div style=&quot;position:relative; z-index:0;&quot;&gt;
+		&lt;img src=&quot;bwm.jpg&quot; style=&quot;position:absolute; z-index:2;&quot;&gt;
+	&lt;/div&gt;
+	&lt;div style=&quot;position:relative; z-index:0;&quot;&gt;
+		&lt;img src=&quot;audi.jpg&quot; style=&quot;position:relative; z-index:1;&quot;&gt;
+	&lt;/div&gt;
+
+3、 蓝色背景和宝马哪个在上 ？
+	&lt;div&gt;
+		&lt;div style=&quot;background-color: blue; z-index: 1;&quot;&gt;
+			&lt;img src=&quot;bwm.jpg&quot; style=&quot;position: relative; z-index: -1;&quot;&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+4、蓝色背景和宝马哪个在上 ？？
+	&lt;div style=&quot;display: flex&quot;&gt;
+		&lt;div style=&quot;background-color: blue; z-index: 1;&quot;&gt;
+			&lt;img src=&quot;bwm.jpg&quot; style=&quot;position: relative; z-index: -1;&quot;&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+5、蓝色背景和宝马哪个在上 ？？
+	&lt;div&gt;
+		&lt;div style=&quot;background-color: blue; opacity: 0.5;&quot;&gt;
+			&lt;img src=&quot;bwm.jpg&quot; style=&quot;position: relative; z-index: -1;&quot;&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+6、宝马和奥迪哪个图片在上 ？
+	&lt;div&gt;
+		&lt;img src=&quot;bwm.jpg&quot; style=&quot;position: absolute; top: 0; left: 0;&gt;
+		&lt;img src=&quot;audi.jpg&quot; style=&quot;transform: scale(1);&gt;
+	&lt;/div&gt;
+
+7、宝马和奥迪哪个图片在上 ？
+	&lt;div&gt;
+		&lt;img src=&quot;audi.jpg&quot; style=&quot;transform: scale(1);&gt;
+		&lt;img src=&quot;bwm.jpg&quot; style=&quot;position: absolute; top: 0; left: 0;&gt;
+	&lt;/div&gt;
+</code></pre> <h4 id="概念："><a href="#概念：" class="header-anchor">#</a> 概念：</h4> <pre><code>1、什么是层叠上下文 ？
+	层叠上下文，是HTML中的一个三维的概念。如果一个元素含有层叠上下文，我们可以理解为这个元素在z轴上就“高人一等”。
+
+2、层叠上下文的特性 ？
+	a、层叠上下文的层叠水平要比普通元素高;
+	b、层叠上下文可以阻断元素的混合模式;
+	c、层叠上下文可以嵌套，内部层叠上下文及其所有子元素均受制于外部的层叠上下文。
+	d、每个层叠上下文和兄弟元素独立，也就是当进行层叠变化或渲染的时候，只需要考虑后代元素。
+	e、每个层叠上下文是自成体系的，当元素发生层叠的时候，整个元素被认为是在父层叠上下文的层叠顺序中。
+
+3、层叠准则
+	① 谁大谁上：当具有明显的层叠水平标示的时候，如识别的z-index值，在同一个层叠上下文领域，层叠水平值大的那一个覆盖小的那一个。
+	② 后来居上：当元素的层叠水平一致、层叠顺序相同的时候，在DOM流中处于后面的元素会覆盖前面的元素。
+
+
+4、层叠上下文的创建
+	① 根层叠上下文：指的是页面根元素，也就是滚动条的默认的始作俑者&lt;html&gt;元素。这就是为什么，绝对定位元素在left/top等值定位的时候，如果没有其他定位元素限制，会相对浏览器窗口定位的原因。
+
+	② 定位元素与传统层叠上下文：对于包含有position:relative/position:absolute的定位元素，以及FireFox/IE浏览器下含有position:fixed声明的定位元素，当其z-index值不是auto的时候，会创建层叠上下文。
+
+	③ CSS3与新时代的层叠上下文：
+		a、z-index值不为auto的flex的子项(父元素display:flex|inline-flex).
+		b、元素的opacity值不是1.
+		c、元素的transform值不是none.
+		d、元素mix-blend-mode值不是normal.
+		e、元素的filter值不是none.
+		f、元素的isolation值是isolate.
+		g、will-change指定的属性值为上面任意一个。
+		h、元素的-webkit-overflow-scrolling设为touch.
+
+5、层叠上下文与层叠顺序
+	①、如果层叠上下文元素不依赖z-index数值，则其层叠顺序是z-index:auto可看成z:index:0级别；
+	②、如果层叠上下文元素依赖z-index数值，则其层叠顺序由z-index值决定。
+</code></pre></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/vue-blog/blog/20191129.html" class="prev">
+          vu常见面试题
+        </a></span> <span class="next"><a href="/vue-blog/blog/20200107.html">
+          setTimeout的第三个参数
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/vue-blog/assets/js/app.90d19ee5.js" defer></script><script src="/vue-blog/assets/js/7.7c2c6a95.js" defer></script>
+  </body>
+</html>
