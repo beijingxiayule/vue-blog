@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /beauty.jpg
+heroImage: /beauty.png
 heroText: 北京下雨了
 tagline: always believe in Lebron James
 actionText: let's start
