@@ -2,7 +2,7 @@ module.exports = {
   	title: 'blog',
   	base: '/vue-blog/',
   	head: [
-    	['link', { rel: 'icon', href: '/logo.JPG' }]
+    	['link', { rel: 'icon', href: '/beauty.jpeg' }]
   	],
   	description: 'Just playing around',
   	themeConfig: {
@@ -20,7 +20,7 @@ module.exports = {
 	      	['/blog/20191129.md', 'vu常见面试题'],
 	      	['/blog/20200106.md', '层叠上下文与层叠顺序'],
 	      	['/blog/20200107.md', 'setTimeout的第三个参数'],
-	      	['/blog/20200108.md', '认识 URLSearchParams']
+	      	['/blog/20200108.md', '认识 URLSearchParams'],
 	    ]
 	},
 }
